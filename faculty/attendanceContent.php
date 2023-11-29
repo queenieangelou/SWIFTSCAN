@@ -31,10 +31,10 @@
     <!-- Add an image for the user icon and a dropdown menu in the .main div -->
     <div class="main">
         <div class="user-dropdown">
-            <img src="../pictures/2x2.jpg" alt="User Icon" id="user-icon">
+            <img src="../pictures/admin.png" alt="User Icon" id="user-icon">
             <div class="user-dropdown-content">
                 <a href="#">Edit Profile</a>
-                <a href="../home/facultylogin.php">Logout</a>
+                <a href="../home/adminlogin.php">Logout</a>
             </div>
         </div>
         <div class="bx bx-menu" id="menu-icon"></div>

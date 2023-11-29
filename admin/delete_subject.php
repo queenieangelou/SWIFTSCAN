@@ -8,6 +8,6 @@ if (isset($_GET['id'])) {
 }
 
 // Redirect back to the page displaying the faculty list
-header("Location: ../faculty/subjectContent.php");
+header("Location: ../admin/subjectContent.php");
 exit();
 ?>

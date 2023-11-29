@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Subject</title>
   <link rel="stylesheet" type="text/css" href="../CSS/faculty.css">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet"
@@ -17,7 +17,7 @@
   
 
   <header>
-    <a href="faculty.php" class="logo"><i class="bx bx-scan"></i><span>SwiftScan</span></a>
+    <a href="subjectContent.php" class="logo"><i class="bx bx-scan"></i><span>SwiftScan</span></a>
 
     <!-- ... (previous HTML) ... -->
   <ul class="navbar">
@@ -32,10 +32,9 @@
     <!-- Add an image for the user icon and a dropdown menu in the .main div -->
     <div class="main">
         <div class="user-dropdown">
-            <img src="../pictures/2x2.jpg" alt="User Icon" id="user-icon">
+            <img src="../pictures/admin.png" alt="User Icon" id="user-icon">
             <div class="user-dropdown-content">
-                <a href="#">Edit Profile</a>
-                <a href="../home/facultylogin.php">Logout</a>
+                <a href="../home/adminlogin.php">Logout</a>
             </div>
         </div>
         <div class="bx bx-menu" id="menu-icon"></div>
@@ -43,7 +42,7 @@
 </header>
 
  <div class="tab-pane fade" id="subjectContent">
-            <h2>Subject Tab</h2>
+            <h2>Subject</h2>
             
                     <!-- Search Container -->
                     <div class="search-container">
@@ -52,8 +51,12 @@
                             <input type="text" name="searchInput" id="searchInput" placeholder="Search by Subject ID">
                             <button type="submit" class="btn btn-primary" name="searchBtn">Search</button>
                         </form>
+                      <!-- Add Student Button (aligned to the right) -->
+      <div class="add-student-container">
+        <a href="../admin/add_subject.php" class="btn btn-primary">Add Subject</a>
+      </div>
                     </div>
-                    <?php
+        <?php
 require('../home/connection.php');
 
 // Check if the search form is submitted
@@ -87,19 +90,13 @@ if (isset($_GET['searchBtn'])) {
             echo '<td>' . $subject['subjectid'] . '</td>';
             echo '<td>' . $subject['subjectcode'] . '</td>';
             echo '<td>' . $subject['subjectname'] . '</td>';
-            echo '<td><a href="delete_subject.php?id=' . $subject['subjectid'] . '"><img src="../trash.svg" alt="Delete" style="width: 20px; height: 20px; color: red;"></a></td>';
-            echo '<td><a href="edit_subject.php?id=' . $subject['subjectid'] . '"><img src="../edit.svg" alt="Edit" style="width: 20px; height: 20px; color: blue;"></a></td>';
+            echo '<td><a href="delete_subject.php?id=' . $subject['subjectid'] . '"><img src="../pictures/trash.svg" alt="Delete" style="width: 20px; height: 20px; color: red;"></a></td>';
+            echo '<td><a href="edit_subject.php?id=' . $subject['subjectid'] . '"><img src="../pictures/edit.svg" alt="Edit" style="width: 20px; height: 20px; color: blue;"></a></td>';
             echo '</tr>';
         }
         ?>
     </tbody>
 </table>
-
-
-
-            <!-- Add Student Button -->
-            <a href="add_subject.php" class="btn btn-primary">Add Subject</a>
-    </div>
     <script src="../JS/admin.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
         public static function connect()
         {
             try {
-                $con = new PDO('mysql:host=localhost;dbname=db_ba3102', 'root', '');
+                $con = new PDO('mysql:host=localhost;dbname=db_8merge', 'root', '');
                 return $con;
             } catch (PDOException $error1) {
                 echo 'Something went wrong with your connection!' . $error1->getMessage();
