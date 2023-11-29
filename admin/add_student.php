@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="text" name="course" placeholder="Course" value="">
 
         <!-- Dropdown for Department -->
-        <label for="dept">Department:</label>
+        <label for="dept">Department</label>
         <select name="deptname" id="deptname"> <!-- Corrected the name attribute -->
             <?php foreach ($yearOptions as $deptname) : ?>
                 <option value="<?php echo $deptname; ?>"><?php echo $deptname; ?></option>

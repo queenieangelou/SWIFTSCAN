@@ -84,7 +84,9 @@
             </tr>
         </thead>
         <tbody>
-            <?php
+        <?php
+        // Check if there are search results
+        if ($facilityData) {
             // Loop through the facility data and display the table rows
             foreach ($facilityData as $facility) {
                 echo '<tr>';
@@ -95,7 +97,11 @@
                 echo '<td><a href="edit_facility.php?id=' . $facility['facilityid'] . '"><img src="../pictures/edit.svg" alt="Edit" style="width: 20px; height: 20px; color: blue;"></a></td>';
                 echo '</tr>';
             }
-            ?>
+        } else {
+            // Display a message if no results are found
+            echo '<tr><td colspan="5">No results found.</td></tr>';
+        }
+        ?>
         </tbody>
     </table>
   <!-- Include your JS script -->

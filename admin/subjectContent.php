@@ -83,16 +83,22 @@ if (isset($_GET['searchBtn'])) {
         </tr>
     </thead>
     <tbody>
-        <?php
-        // Loop through the subject data and display the table rows
-        foreach ($subjectData as $subject) {
-            echo '<tr>';
-            echo '<td>' . $subject['subjectid'] . '</td>';
-            echo '<td>' . $subject['subjectcode'] . '</td>';
-            echo '<td>' . $subject['subjectname'] . '</td>';
-            echo '<td><a href="delete_subject.php?id=' . $subject['subjectid'] . '"><img src="../pictures/trash.svg" alt="Delete" style="width: 20px; height: 20px; color: red;"></a></td>';
-            echo '<td><a href="edit_subject.php?id=' . $subject['subjectid'] . '"><img src="../pictures/edit.svg" alt="Edit" style="width: 20px; height: 20px; color: blue;"></a></td>';
-            echo '</tr>';
+    <?php
+        // Check if there are subject search results
+        if ($subjectData) {
+            // Loop through the subject data and display the table rows
+            foreach ($subjectData as $subject) {
+                echo '<tr>';
+                echo '<td>' . $subject['subjectid'] . '</td>';
+                echo '<td>' . $subject['subjectcode'] . '</td>';
+                echo '<td>' . $subject['subjectname'] . '</td>';
+                echo '<td><a href="delete_subject.php?id=' . $subject['subjectid'] . '"><img src="../pictures/trash.svg" alt="Delete" style="width: 20px; height: 20px; color: red;"></a></td>';
+                echo '<td><a href="edit_subject.php?id=' . $subject['subjectid'] . '"><img src="../pictures/edit.svg" alt="Edit" style="width: 20px; height: 20px; color: blue;"></a></td>';
+                echo '</tr>';
+            }
+        } else {
+            // Display a message if no subject results are found
+            echo '<tr><td colspan="5">No results found.</td></tr>';
         }
         ?>
     </tbody>

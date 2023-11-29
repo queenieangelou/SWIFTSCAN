@@ -161,7 +161,7 @@
             $p->bindValue(':subjectname', $subjectData['subjectname']);
             $p->execute();
         }
-    
+        
         public static function updateSubject($subjectData) {
             $p = self::connect()->prepare('UPDATE tbsubject SET subjectcode=:newSubjectCode, subjectname=:newSubjectName WHERE subjectid=:subjectid');
             $p->bindValue(':subjectid', $subjectData['subjectid']);
@@ -195,20 +195,24 @@
         // Function to add a new facility
         public static function createFacility($facilityData) {
             $pdo = self::connect();
-            $stmt = $pdo->prepare('INSERT INTO tbfacility (buildingname, roomnumber) VALUES (:buildingname, :roomnumber)');
-            $stmt->bindValue(':buildingname', $facilityData['buildingname']);
-            $stmt->bindValue(':roomnumber', $facilityData['roomnumber']);
-            $stmt->execute();
-        }
-        // Function to update a facility by ID
-        public static function updateFacility($facilityData) {
-            $pdo = self::connect();
-            $stmt = $pdo->prepare('UPDATE tbfacility SET buildingname=:buildingname, roomnumber=:roomnumber  WHERE facilityid=:facilityid');
+            $stmt = $pdo->prepare('INSERT INTO tbfacility (facilityid, buildingname, roomnumber) VALUES (:facilityid, :buildingname, :roomnumber)');
             $stmt->bindValue(':facilityid', $facilityData['facilityid']);
             $stmt->bindValue(':buildingname', $facilityData['buildingname']);
             $stmt->bindValue(':roomnumber', $facilityData['roomnumber']);
             $stmt->execute();
         }
+        
+        
+        // Function to update a facility by ID
+        public static function updateFacility($facilityData) {
+            $pdo = self::connect();
+            $stmt = $pdo->prepare('UPDATE tbfacility SET buildingname=:buildingname, roomnumber=:roomnumber WHERE facilityid=:facilityid');
+            $stmt->bindValue(':facilityid', $facilityData['facilityid']);
+            $stmt->bindValue(':buildingname', $facilityData['buildingname']);
+            $stmt->bindValue(':roomnumber', $facilityData['roomnumber']);
+            $stmt->execute();
+        }
+        
         // Function to delete a facility by ID
         public static function deleteFacility($facilityid) {
             $pdo = self::connect();

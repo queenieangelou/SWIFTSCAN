@@ -17,6 +17,7 @@ require('../home/connection.php');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['add_facility'])) {
         $facilityData = [
+            'facilityid' => $_POST['facilityid'],
             'buildingname' => $_POST['buildingname'],
             'roomnumber' => $_POST['roomnumber'],
         ];
@@ -26,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 }
+
 ?>
 <!-- HTML Form for Adding Facility -->
 <div class="form">
@@ -33,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p>Adding Facility</p>
     </div>
     <form action="" method="post">
+    <input type="text" name="facilityid" placeholder="Facility ID" value="">
         <input type="text" name="buildingname" placeholder="Building Name" value="">
         <input type="text" name="roomnumber" placeholder="Room Number" value="">
         <input type="submit" value="Add Facility" name="add_facility">
