@@ -25,6 +25,7 @@
   <li><a href="studentContent.php" class="student">Student</a></li>
   <li><a href="subjectContent.php" class="student">Subject</a></li>
   <li><a href="facilityContent.php" class="student">Facility</a></li>
+  <li><a href="../student/generate_qr.php">Generate</a></li>
 </ul>
 <!-- ... (rest of the HTML) ... -->
 

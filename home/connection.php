@@ -3,7 +3,7 @@
         public static function connect()
         {
             try {
-                $con = new PDO('mysql:host=localhost;dbname=db_8merge', 'root', '');
+                $con = new PDO('mysql:host=localhost;dbname=db_db', 'root', '');
                 return $con;
             } catch (PDOException $error1) {
                 echo 'Something went wrong with your connection!' . $error1->getMessage();
@@ -299,7 +299,7 @@
         public static function createStudentDepartment($studentDepartmentData) {
             $query = "
                 INSERT INTO tbstuddepartment (studid, deptname)
-                VALUES (:studid, :depatame)
+                VALUES (:studid, :deptname)
             ";
         
             try {
@@ -352,7 +352,7 @@
         public static function getDepartmentOptions() {
             try {
                 $con = self::connect(); // Assuming you have a connect method
-                $query = "SELECT DISTINCT deptid FROM tbdepartment";
+                $query = "SELECT deptid FROM tbdepartment WHERE deptname = :deptname";
                 $statement = $con->prepare($query);
                 $statement->execute();
                 $result = $statement->fetchAll(PDO::FETCH_COLUMN);
@@ -381,7 +381,16 @@
                 return false;
             }
         }
-        
+
+        public static function getAttendanceListFiltered($searchInput) {
+            $pdo = self::connect();
+            $stmt = $pdo->prepare("SELECT * FROM tbattendance WHERE studid LIKE :searchInput");
+            $stmt->bindValue(':searchInput', '%' . $searchInput . '%', PDO::PARAM_STR);
+            $stmt->execute();
+    
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
         }
     
 ?>  

@@ -23,6 +23,7 @@
                 <li><a href="#Facilities">Facilities</a></li>
                 <li><a href="#Developers">Developers</a></li>
                 <li><a href="#Footer">About Us</a></li>
+                <li><a href="../student/student.php">QR Code</a></li>
                 <li><a href="../home/facultylogin.php">Login</a></li>
             </ul>                
         </div>
