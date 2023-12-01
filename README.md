@@ -1,7 +1,6 @@
-# SwiftScan System Read Me File
+# Project ReadMe: SwiftScan - Advancing Attendance Data Efficiency
 
 ## Table of Contents
-
 1. [Objective](#objective)
 2. [Introduction](#introduction)
 3. [Features](#features)
@@ -11,64 +10,84 @@
 
 ---
 
-## Objective<a name="objective"></a>
-
-The primary objective of this project is to enhance attendance data efficiency at Batangas State University - The National Engineering University - Lipa Campus through the implementation of the SwiftScan system. This initiative aims to contribute to a more conducive learning environment by embracing digital transformation in education.
-
----
-
-## Introduction<a name="introduction"></a>
-
-The education sector is undergoing a significant digital transformation, and the adoption of innovative solutions is imperative to keep pace with these changes. In this context, the SwiftScan system is introduced at Batangas State University - Lipa Campus to address attendance-related challenges. This read me file provides essential information on the SwiftScan system, including its features, installation process, requirements, and how to use it effectively.
+## Objective <a name="objective"></a>
+The objective of the SwiftScan project at Batangas State University - The National Engineering University - Lipa Campus is to enhance attendance data efficiency by implementing a QR code-based system. This digital solution aims to streamline the attendance tracking process for both faculty and students, fostering a more conducive learning environment through the integration of modern technology.
 
 ---
 
-## Features<a name="features"></a>
-
-- **Efficient Attendance Tracking**: SwiftScan streamlines the attendance tracking process, providing a quicker and more accurate alternative to traditional methods.
-
-- **Digital Transformation**: Embrace the ongoing digital transformation in education by replacing manual attendance with a modern, digital solution.
-
-- **Conducive Learning Environment**: Enhance the learning environment by reducing administrative burdens related to attendance, allowing more focus on educational content.
-
-- **Feasibility and Effectiveness**: Subsequent chapters of this study will delve into the feasibility and effectiveness of SwiftScan as a solution to existing attendance-related challenges.
+## Introduction <a name="introduction"></a>
+In the pursuit of embracing digital transformation in education, Batangas State University - Lipa Campus has adopted the SwiftScan system. This innovative approach leverages QR codes to revolutionize the attendance management process, providing a seamless and efficient solution to the existing challenges associated with attendance tracking. The subsequent chapters of this study will delve into the feasibility and effectiveness of SwiftScan in addressing the university's attendance-related concerns.
 
 ---
 
-## Installation<a name="installation"></a>
+## Features <a name="features"></a>
+The SwiftScan system offers the following key features:
 
+- **Admin CRUD Operations:**
+  - Manage faculty, student, subject, and facility information through a convenient CRUD (Create, Read, Update, Delete) interface.
+  - Generate QR codes for students, facilitating a quick and secure identification process.
+
+- **Faculty Attendance Management:**
+  - View and monitor student attendance records.
+  - Download attendance reports for further analysis.
+
+- **Student QR Code Access:**
+  - Students can access and download their unique QR codes.
+  - QR codes serve as a secure means for recording attendance during classes.
+
+- **QR Scanner Integration:**
+  - Record student entry and exit times using the QR scanner.
+  - Facilitate a real-time and accurate attendance tracking system.
+
+---
+
+## Installation <a name="installation"></a>
 To install the SwiftScan system, follow these steps:
 
-1. Clone the SwiftScan repository from [GitHub Repository URL].
-2. Navigate to the project directory using the command line.
-3. Run the installation script: `./install.sh`.
-4. Follow on-screen instructions to complete the installation process.
+1. Clone the SwiftScan repository from (https://github.com/queenieangelou/SWIFTSCAN.git).
+2. Navigate to the project directory.
+3. Run the installation script:
+   ```
+   $ npm install
+   ```
+4. Configure the necessary settings, such as database connections and system preferences.
+5. Launch the application:
+   ```
+   $ npm start
+   ```
 
 ---
 
-## Requirements<a name="requirements"></a>
+## Requirements <a name="requirements"></a>
+Ensure that your system meets the following requirements for SwiftScan:
 
-Ensure that your system meets the following requirements before installing SwiftScan:
-
-- Operating System: [Specify supported operating systems]
-- RAM: [Specify minimum RAM requirements]
-- Storage: [Specify minimum storage requirements]
-- Internet Connection: Required for updates and cloud integration.
-
----
-
-## Usage<a name="usage"></a>
-
-Once installed, SwiftScan can be used by:
-
-1. Launching the application from the installed directory.
-2. Logging in with the provided credentials.
-3. Follow on-screen instructions to start using SwiftScan for efficient attendance tracking.
-
-For detailed usage instructions, refer to the user manual available in the documentation folder.
+- Node.js (version X.X.X or higher)
+- npm (Node Package Manager)
+- Database (e.g., MongoDB, MySQL) for backend storage
+- Internet connectivity for QR code generation and scanning
 
 ---
 
-Feel free to contact the SwiftScan support team at [support@email.com] for any assistance or queries regarding the installation, usage, or troubleshooting of the system.
+## Usage <a name="usage"></a>
+Follow these guidelines to effectively use the SwiftScan system:
 
-Thank you for choosing SwiftScan for advancing attendance data efficiency at Batangas State University - Lipa Campus!
+1. **Admin Operations:**
+   - Access the admin dashboard to manage faculty, student, subject, and facility information.
+   - Generate QR codes for students.
+
+2. **Faculty Operations:**
+   - Log in to the system.
+   - View and download attendance reports.
+
+3. **Student Operations:**
+   - Log in to the system.
+   - Access and download your unique QR code.
+
+4. **QR Scanner:**
+   - Use the integrated QR scanner during class sessions to record student entry and exit times.
+
+---
+
+This ReadMe file provides an overview of the SwiftScan project, including its objective, features, installation instructions, system requirements, and guidelines for usage. For more detailed information, refer to the corresponding chapters in the study documentation.
+
+**Thank you for choosing SwiftScan for advancing attendance efficiency at Batangas State University - Lipa Campus!**
