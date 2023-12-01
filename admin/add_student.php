@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/add_edit.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 <?php
@@ -17,11 +24,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
         $course = $_POST['course'];
-        $selectedYear = $_POST['year'];
-        $selectedSection = $_POST['section'];
+        $selectedDepartment = $_POST['deptname'];
+
 
         // Get the yearid and sectionid based on the selected year and section
-        $yearid = SWIFTSCAN::getDepartmentId($selectedYear); // You need to implement this function
+        $deptid = SWIFTSCAN::getDepartmentId($selectedYear); // You need to implement this function
 
         // Check if both yearid and sectionid are valid before proceeding
         if ($deptid !== false) {
@@ -66,32 +73,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="text" name="lastname" placeholder="Last Name" value="">
         <input type="text" name="course" placeholder="Course" value="">
 
-        <!-- Dropdown for Year -->
-        <label for="dept">Department:</label>
-        <select name="dept" id="dept">
-            <?php foreach ($departmentOptions as $deptname) : ?>
+        <!-- Dropdown for Department -->
+        <label for="dept">Department</label>
+        <select name="deptname" id="deptname"> <!-- Corrected the name attribute -->
+            <?php foreach ($yearOptions as $deptname) : ?>
                 <option value="<?php echo $deptname; ?>"><?php echo $deptname; ?></option>
             <?php endforeach; ?>
         </select>
 
+
         <input type="submit" value="Add Student" name="add_student">
     </form>
 </div>
-
-
-
-</div>
-
-<table>
-    <thead>
-        <tr>
-            <th>Srcode</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Year and Section</th>
-            <th>Course</th>
-        </tr>
-    </thead>    
-</table>
 </body>
 </html>

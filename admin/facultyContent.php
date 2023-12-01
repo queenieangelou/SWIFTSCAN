@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Faculty</title>
   <link rel="stylesheet" type="text/css" href="../CSS/admin.css">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet"
@@ -25,6 +25,7 @@
   <li><a href="studentContent.php" class="student">Student</a></li>
   <li><a href="subjectContent.php" class="student">Subject</a></li>
   <li><a href="facilityContent.php" class="student">Facility</a></li>
+  <li><a href="../student/generate_qr.php">Generate</a></li>
 </ul>
 <!-- ... (rest of the HTML) ... -->
 
@@ -32,9 +33,8 @@
     <!-- Add an image for the user icon and a dropdown menu in the .main div -->
     <div class="main">
         <div class="user-dropdown">
-            <img src="../pictures/2x2.jpg" alt="User Icon" id="user-icon">
+            <img src="../pictures/admin.png" alt="User Icon" id="user-icon">
             <div class="user-dropdown-content">
-                <a href="#">Edit Profile</a>
                 <a href="../home/adminlogin.php">Logout</a>
             </div>
         </div>
@@ -43,7 +43,7 @@
 </header>
 
 <div class="tab-pane fade" id="facultyContent">
-        <h2>Faculty Tab</h2>
+        <h2>Faculty</h2>
         
         <!-- Search Container -->
 <div class="search-container">
@@ -52,7 +52,10 @@
         <input type="text" name="searchInput" id="searchInput" placeholder="Search by Employee ID">
         <button type="submit" class="btn btn-primary" name="searchBtn">Search</button>
     </form>
-</div>
+    <div class="add-student-container">
+        <a href="../admin/add_faculty.php" class="btn btn-primary">Add Faculty</a>
+      </div>
+    </div>
 
 
 <?php
@@ -92,8 +95,8 @@ if (isset($_GET['searchBtn'])) {
                 echo '<td>' . $faculty['firstname'] . '</td>';
                 echo '<td>' . $faculty['lastname'] . '</td>';
                 echo '<td>' . $faculty['department'] . '</td>';
-                echo '<td><a href="delete_faculty.php?id=' . $faculty['empid'] . '"><img src="../trash.svg" alt="Delete" style="width: 20px; height: 20px; color: red;"></a></td>';
-                echo '<td><a href="edit_faculty.php?id=' . $faculty['empid'] . '"><img src="../edit.svg" alt="Edit" style="width: 20px; height: 20px; color: blue;"></a></td>';
+                echo '<td><a href="delete_faculty.php?id=' . $faculty['empid'] . '"><img src="../pictures/trash.svg" alt="Delete" style="width: 20px; height: 20px; color: red;"></a></td>';
+                echo '<td><a href="edit_faculty.php?id=' . $faculty['empid'] . '"><img src="../pictures/edit.svg" alt="Edit" style="width: 20px; height: 20px; color: blue;"></a></td>';
                 echo '</tr>';
             }
         } else {
@@ -102,12 +105,6 @@ if (isset($_GET['searchBtn'])) {
         ?>
     </tbody>
 </table>
-
-<!-- Add Student Button -->
-<a href="add_faculty.php" class="btn btn-primary">Add Faculty</a>
-
-</div>
-
 <script src="../JS/admin.js"></script>
 </body>
 </html>

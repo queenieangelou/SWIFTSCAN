@@ -34,7 +34,7 @@ if (isset($_POST['logIn_button'])) {
         if ($password === $storedPassword) {
             $_SESSION['admid'] = $admid;
             $_SESSION['validate'] = true;
-            header('location: ../admin/admin.php');
+            header('location: ../admin/facultyContent.php');
             exit();
         } else {
             echo 'Password verification failed! Passwords do not match.<br>';

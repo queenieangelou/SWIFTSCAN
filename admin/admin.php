@@ -6,11 +6,12 @@
   <title>Document</title>
   <link rel="stylesheet" type="text/css" href="../CSS/admin.css">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-  <link rel="stylesheet"
-  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
 
 </head>
 <body>
@@ -31,15 +32,14 @@
 
     <!-- Add an image for the user icon and a dropdown menu in the .main div -->
     <div class="main">
-        <div class="user-dropdown">
-            <img src="../pictures/2x2.jpg" alt="User Icon" id="user-icon">
-            <div class="user-dropdown-content">
-                <a href="#">Edit Profile</a>
-                <a href="../home/adminlogin.php">Logout</a>
-            </div>
+    <div class="user-dropdown">
+        <img src="../pictures/admin.png" alt="Admin Icon" id="user-icon">
+        <div class="user-dropdown-content">
+            <a href="../home/adminlogin.php">Logout</a>
         </div>
-        <div class="bx bx-menu" id="menu-icon"></div>
     </div>
+    <div class="bx bx-menu" id="menu-icon"></div>
+</div>
 </header>
 
 <?php require('../home/connection.php'); ?>
