@@ -16,29 +16,19 @@ require('../home/connection.php');
 
 if (isset($_GET['id'])) {
     $studid = $_GET['id'];
-    // Retrieve student member data based on the $studid
+    // Retrieve student data based on the $studid
     $student = SWIFTSCAN::getStudentDataById($studid);
-
-    // Fetch available years and sections from the respective tables
-    $yearOptions = SWIFTSCAN::getDepartmentOptions(); // You need to implement this function in your SWIFTSCAN class
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Handle the form submission and update student attributes
         $studentData = [
             'studid' => $studid,
-            'newSrCode' => $_POST['newSrCode'],
             'newFirstName' => $_POST['newFirstName'],
             'newLastName' => $_POST['newLastName'],
             'newcourse' => $_POST['newcourse'],
-            'newDepartment' => $_POST['newDepartment'],
         ];
 
-        // Call the existing updateStudent function
         SWIFTSCAN::updateStudent($studentData);
-
-        // Assuming $studentData is an associative array with the required data
-        SWIFTSCAN::updateStudentDepartment($studentData);
-
 
         // Redirect back to the student list page after the update
         header("Location: ../admin/studentContent.php");
@@ -53,17 +43,11 @@ if (isset($_GET['id'])) {
 </div>
 <!-- HTML Form for Editing Student Attributes -->
 <form method="POST" action="edit_student.php?id=<?= $studid ?>">
-    <input type="text" name="newSrCode" placeholder="Student SR-Code" value="<?= $student['studid'] ?>" required>
+    <input type="text" name="newSrCode" placeholder="Student SR- Code" value="<?= $student['studid'] ?>" required>
     <input type="text" name="newFirstName" placeholder="First Name" value="<?= $student['firstname'] ?>" required>
     <input type="text" name="newLastName" placeholder="Last Name" value="<?= $student['lastname'] ?>" required>
     <input type="text" name="newcourse" placeholder="Course" value="<?= $student['course'] ?>" required>
 
-    <label for="newYear">Department:</label>
-    <select name="deptname" id="deptname"> <!-- Corrected the name attribute -->
-            <?php foreach ($yearOptions as $deptname) : ?>
-                <option value="<?php echo $deptname; ?>"><?php echo $deptname; ?></option>
-            <?php endforeach; ?>
-        </select>
 
     <input type="submit" value="Save Changes">
     </form>

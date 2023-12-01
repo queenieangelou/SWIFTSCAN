@@ -23,7 +23,7 @@ if (isset($_GET['id'])) {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Handle the form submission and update facility attributes
         $facilityData = [
-            'facilityid' => $facilityid,
+            'facilityid' => $facilityid,  // Assuming 'facilityid' is coming from your form
             'buildingname' => $_POST['buildingname'],
             'roomnumber' => $_POST['roomnumber'],
         ];

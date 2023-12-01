@@ -20,7 +20,7 @@
       <li><a href="studentContent.php" class="student">Student</a></li>
       <li><a href="subjectContent.php" class="student">Subject</a></li>
       <li><a href="facilityContent.php" class="student">Facility</a></li>
-      <li><a href="../student/generate_qr.php">Generate</a></li>
+      <li><a href="../admin/generate_qr.php">Generate</a></li>
     </ul>
 
     <div class="main">
@@ -73,7 +73,6 @@
           <th>First Name</th>
           <th>Last Name</th>
           <th>Course</th>
-          <th>Department</th>
           <th>Delete</th>
           <th>Edit</th>
         </tr>
@@ -83,53 +82,20 @@
         // Check if there are search results
         if ($studentData) {
           foreach ($studentData as $student) {
-            $studentInfoQuery = "
-            SELECT
-              tbstuddepartment.studid,
-              tbdepartment.deptname
-            FROM
-              tbstuddepartment
-            JOIN
-              tbdepartment ON tbstuddepartment.deptid = tbdepartment.deptid
-            WHERE
-              tbstuddepartment.studid = :studid;";
-            
-            try {
-              // Establish a PDO connection
-              $con = SWIFTSCAN::connect();
-              
-              // Prepare and execute the query
-              $statement = $con->prepare($studentInfoQuery);
-              $statement->bindParam(':studid', $student['studid']);
-              $statement->execute();
-              
-              // Fetch the result
-              $studentInfo = $statement->fetch(PDO::FETCH_ASSOC);
-
               echo '<tr>';
               echo '<td>' . $student['studid'] . '</td>';
               echo '<td>' . $student['firstname'] . '</td>';
               echo '<td>' . $student['lastname'] . '</td>';
               echo '<td>' . $student['course'] . '</td>';
               
-              // Display Year and Section information
-              if ($studentInfo && is_array($studentInfo)) {
-                  echo '<td>' . $studentInfo['deptname'] . '</td>';
-              } else {
-                  echo '<td>CICS</td>';
-              }
               // End of displaying Year and Section information
               
               echo '<td><a href="delete_student.php?id=' . $student['studid'] . '"><img src="../pictures/trash.svg" alt="Delete" style="width: 20px; height: 20px; color: red;"></a></td>';
               echo '<td><a href="edit_student.php?id=' . $student['studid'] . '"><img src="../pictures/edit.svg" alt="Edit" style="width: 20px; height: 20px; color: green;"></a></td>';
               echo '</tr>';
-
-            } catch (PDOException $error) {
-              echo 'Error: ' . $error->getMessage();
-            }
           }
         } else {
-          echo '<tr><td colspan="8">No results found.</td></tr>';
+          echo '<tr><td colspan="7">No results found.</td></tr>';
         }
         ?>
       </tbody>

@@ -15,48 +15,21 @@
 <?php
 require('../home/connection.php');
 
-// Fetch available years and sections from the respective tables
-$yearOptions = SWIFTSCAN::getDepartmentOptions(); // You need to implement this function in your SWIFTSCAN class
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['add_student'])) {
-        $studid = $_POST['studid'];
-        $firstname = $_POST['firstname'];
-        $lastname = $_POST['lastname'];
-        $course = $_POST['course'];
-        $selectedDepartment = $_POST['deptname'];
+        $studentData = [
+            'studid' => $_POST['studid'], // Make sure 'studid' is in your form
+            'firstname' => $_POST['firstname'],
+            'lastname' => $_POST['lastname'],
+            'course' => $_POST['course'],
+            // Add any additional student data fields here
+        ];
 
+        // Assuming you have a method like createStudent in a class named SWIFTSCAN
+        SWIFTSCAN::createStudent($studentData);
 
-        // Get the yearid and sectionid based on the selected year and section
-        $deptid = SWIFTSCAN::getDepartmentId($selectedYear); // You need to implement this function
-
-        // Check if both yearid and sectionid are valid before proceeding
-        if ($deptid !== false) {
-            // Create an array with the data to be inserted into tblstudentyearsection
-            $studentYearSectionData = [
-                'studid' => $studid,
-                'deptid' => $deptid,
-            ];
-
-            // Insert data into tblstudentyearsection
-            // Assuming $studentDepartmentData is an associative array with the required data
-            SWIFTSCAN::createStudentDepartment($studentDepartmentData);
-
-            // Now you can also create the student in your main table (e.g., tbstudinfo)
-            $studentData = [
-                'studid' => $studid,
-                'firstname' => $firstname,
-                'lastname' => $lastname,
-                'course' => $course
-            ];
-            SWIFTSCAN::createStudent($studentData); // You need to implement this function
-
-            header("Location: ../admin/studentContent.php");
-            exit();
-        } else {
-            echo "Error: Invalid year or section selected.";
-            // Handle the error appropriately
-        }
+        header("Location: ../admin/studentContent.php");
+        exit();
     }
 }
 ?>
@@ -72,16 +45,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="text" name="firstname" placeholder="First Name" value="">
         <input type="text" name="lastname" placeholder="Last Name" value="">
         <input type="text" name="course" placeholder="Course" value="">
-
-        <!-- Dropdown for Department -->
-        <label for="dept">Department</label>
-        <select name="deptname" id="deptname"> <!-- Corrected the name attribute -->
-            <?php foreach ($yearOptions as $deptname) : ?>
-                <option value="<?php echo $deptname; ?>"><?php echo $deptname; ?></option>
-            <?php endforeach; ?>
-        </select>
-
-
         <input type="submit" value="Add Student" name="add_student">
     </form>
 </div>

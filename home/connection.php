@@ -60,12 +60,14 @@
     
         public static function updateStudent($studentData) {
             $p = SWIFTSCAN::connect()->prepare('UPDATE tbstudinfo SET firstname=:newFirstName, lastname=:newLastName, course=:newcourse WHERE studid=:studid');
-            $p->bindValue(':studid', $studentData['studid']);
-            $p->bindValue(':newFirstName', $studentData['newFirstName']);
-            $p->bindValue(':newLastName', $studentData['newLastName']);
-            $p->bindValue(':newcourse', $studentData['newcourse']);
+            $p->bindParam(':studid', $studentData['studid']);
+            $p->bindParam(':newFirstName', $studentData['newFirstName']);
+            $p->bindParam(':newLastName', $studentData['newLastName']);
+            $p->bindParam(':newcourse', $studentData['newcourse']);
             $p->execute();
         }
+    
+    
         
     
         public static function deleteStudent($studid) {
@@ -76,30 +78,10 @@
         
     
         public static function getStudentDataById($studid) {
-            $query = "
-                SELECT
-                    tbstudinfo.studid,
-                    tbstudinfo.firstname,
-                    tbstudinfo.lastname,
-                    tbstudinfo.course
-                FROM
-                    tbstudinfo
-                WHERE
-                    tbstudinfo.studid = :studid
-            ";
-        
-            try {
-                $con = self::connect();
-                $statement = $con->prepare($query);
-                $statement->bindParam(':studid', $studid);
-                $statement->execute();
-                $result = $statement->fetch(PDO::FETCH_ASSOC);
-        
-                return $result;
-            } catch (PDOException $error) {
-                echo 'Error: ' . $error->getMessage();
-                return false;
-            }
+            $p = SWIFTSCAN::connect()->prepare('SELECT * FROM tbstudinfo WHERE studid=:studid');
+            $p->bindValue(':studid', $studid);
+            $p->execute();
+            return $p->fetch(PDO::FETCH_ASSOC);
         }
         
         
@@ -206,7 +188,7 @@
         // Function to update a facility by ID
         public static function updateFacility($facilityData) {
             $pdo = self::connect();
-            $stmt = $pdo->prepare('UPDATE tbfacility SET buildingname=:buildingname, roomnumber=:roomnumber WHERE facilityid=:facilityid');
+            $stmt = $pdo->prepare('UPDATE tbfacility SET facilityid=:facilityid, buildingname=:buildingname, roomnumber=:roomnumber WHERE facilityid=:facilityid');
             $stmt->bindValue(':facilityid', $facilityData['facilityid']);
             $stmt->bindValue(':buildingname', $facilityData['buildingname']);
             $stmt->bindValue(':roomnumber', $facilityData['roomnumber']);

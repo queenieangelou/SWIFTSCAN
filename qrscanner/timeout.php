@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     }
                 } else {
                     // Timeout is not null, indicate that timeout has already been set
-                    echo "Error: Timeout has already been set for studid: $studid";
+                    echo "$studid You have already timed out. Please time in first";
                 }
             }
 
@@ -70,3 +70,5 @@ function getTimeinoutForStudent($conn, $studid) {
     }
 }
 ?>
+
+
