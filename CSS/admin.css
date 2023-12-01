@@ -180,6 +180,7 @@ header {
     margin-top: 100px;
     margin-left: 200px;
     margin-right: 200px;
+    min-height: 100vh;
 }
 
 .flex-container h3 {
@@ -306,3 +307,11 @@ header {
 .add-student-container .btn-primary:hover {
     background-color: #28c44e;
 }
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* This ensures no extra space below the image */
+    margin: 0 auto; /* Center the image within its container */
+}
+
