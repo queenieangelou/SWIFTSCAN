@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Facility</title>
   <link rel="stylesheet" type="text/css" href="../CSS/faculty.css">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet"
@@ -25,6 +25,7 @@
   <li><a href="studentContent.php" class="student">Student</a></li>
   <li><a href="subjectContent.php" class="student">Subject</a></li>
   <li><a href="facilityContent.php" class="student">Facility</a></li>
+  <li><a href="../student/generate_qr.php">Generate</a></li>
 </ul>
 <!-- ... (rest of the HTML) ... -->
 
@@ -32,10 +33,9 @@
     <!-- Add an image for the user icon and a dropdown menu in the .main div -->
     <div class="main">
         <div class="user-dropdown">
-            <img src="../pictures/2x2.jpg" alt="User Icon" id="user-icon">
+            <img src="../pictures/admin.png" alt="User Icon" id="user-icon">
             <div class="user-dropdown-content">
-                <a href="#">Edit Profile</a>
-                <a href="../home/facultylogin.php">Logout</a>
+                <a href="../home/adminlogin.php">Logout</a>
             </div>
         </div>
         <div class="bx bx-menu" id="menu-icon"></div>
@@ -43,7 +43,7 @@
 </header>
 
   <div class="tab-pane fade" id="facilityContent">
-    <h2>Facility Tab</h2>
+    <h2>Facility</h2>
 
     <!-- Search Container -->
     <div class="search-container">
@@ -52,6 +52,10 @@
             <input type="text" name="searchInput" id="searchInput" placeholder="Search by Facility ID">
             <button type="submit" class="btn btn-primary" name="searchBtn">Search</button>
         </form>
+        <!-- Add Student Button (aligned to the right) -->
+      <div class="add-student-container">
+        <a href="../admin/add_facility.php" class="btn btn-primary">Add Facility</a>
+      </div>
     </div>
 
     <?php
@@ -81,25 +85,26 @@
             </tr>
         </thead>
         <tbody>
-            <?php
+        <?php
+        // Check if there are search results
+        if ($facilityData) {
             // Loop through the facility data and display the table rows
             foreach ($facilityData as $facility) {
                 echo '<tr>';
                 echo '<td>' . $facility['facilityid'] . '</td>';
                 echo '<td>' . $facility['buildingname'] . '</td>';
                 echo '<td>' . $facility['roomnumber'] . '</td>';
-                echo '<td><a href="delete_facility.php?id=' . $facility['facilityid'] . '"><img src="../trash.svg" alt="Delete" style="width: 20px; height: 20px; color: red;"></a></td>';
-                echo '<td><a href="edit_facility.php?id=' . $facility['facilityid'] . '"><img src="../edit.svg" alt="Edit" style="width: 20px; height: 20px; color: blue;"></a></td>';
+                echo '<td><a href="delete_facility.php?id=' . $facility['facilityid'] . '"><img src="../pictures/trash.svg" alt="Delete" style="width: 20px; height: 20px; color: red;"></a></td>';
+                echo '<td><a href="edit_facility.php?id=' . $facility['facilityid'] . '"><img src="../pictures/edit.svg" alt="Edit" style="width: 20px; height: 20px; color: blue;"></a></td>';
                 echo '</tr>';
             }
-            ?>
+        } else {
+            // Display a message if no results are found
+            echo '<tr><td colspan="5">No results found.</td></tr>';
+        }
+        ?>
         </tbody>
     </table>
-
-    <!-- Add Facility Button -->
-    <a href="add_facility.php" class="btn btn-primary">Add Facility</a>
-  </div>
-
   <!-- Include your JS script -->
   <script src="../JS/admin.js"></script>
 </body>

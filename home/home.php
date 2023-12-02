@@ -8,14 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="../CSS/home.css"> 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
 </head>
 <body>
     
 <section class="header">
     <nav>
         <a href="home.php"><img src="../pictures/logo.png"></a>
-        <img src="../pictures/univ_logoo.png">
+        <img src="../pictures/univ_logoo.png"> 
         <div class="nav-links" id="navLinks"> 
             <i class="far fa-window-close" onclick="hideMenu()"></i>
             
@@ -24,6 +23,7 @@
                 <li><a href="#Facilities">Facilities</a></li>
                 <li><a href="#Developers">Developers</a></li>
                 <li><a href="#Footer">About Us</a></li>
+                <li><a href="../student/student.php">QR Code</a></li>
                 <li><a href="../home/facultylogin.php">Login</a></li>
             </ul>                
         </div>
@@ -80,49 +80,49 @@
 
 <section class="developers">
     <h1 id="Developers"> The Developers </h1>
-    <p> We are from BSIT BA 3102 - BatStateU TNEU Lipa Campus</p>
+    <p> BSIT STUDENTS from the BatStateU TNEU Lipa Campus</p>
 
     <div class="row">
         <div class="dev-col">
-            <img src="2x2.jpg" alt="Developer 1">
+            <img src="..\pictures\maria.jpg" alt="Developer 1">
             <div>
                 <h3>Maria Andrea De Leon</h3>
-                <p>Future Mo</p>
+                <p>BSIT BA 3102</p>
             </div>
         </div>
 
         <div class="dev-col">
-            <img src="2x2.jpg" alt="Developer 2">
+            <img src="..\pictures\simone.png" alt="Developer 2">
             <div>
                 <h3>Simone Louis De Villa</h3>
-                <p>Future Nya</p>
+                <p>BSIT BA 3102</p>
             </div>
         </div>
 
         <div class="dev-col">
-            <img src="2x2.jpg" alt="Developer 3">
+            <img src="..\pictures\irish.jpg" alt="Developer 3">
             <div>
                 <h3>Irish Lean Suarez</h3>
-                <p>Future Nyo</p>
+                <p>BSIT BA 3102</p>
             </div>
         </div>
 
         <div class="dev-col">
-            <img src="2x2.jpg" alt="Developer 4">
+            <img src="..\pictures\queenie.png" alt="Developer 4">
             <div>
                 <h3>Queenie Angelou Manigbas</h3>
-                <p>Future ni Mina</p>
+                <p>BSIT BA 3102</p>
             </div>
         </div>
 
         <div class="dev-col">
-            <img src="2x2.jpg" alt="Developer 5">
+            <img src="..\pictures\mau.jpg" alt="Developer 5">
             <div>
                 <h3>Maureen Lozares</h3>
-                <p>Future ng ina mo</p>
+                <p>BSIT BA 3102</p>
             </div>
         </div>
-
+    </div>
 </section>
 
 
@@ -142,14 +142,12 @@
     </div>
 
     <p>Made With <i class="far fa-heart"></i> Queenie, Maureen, Maria, Simone and Irish</p>
-
 </section>
 
 <script>
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-
             document.querySelector(this.getAttribute('href')).scrollIntoView({
                 behavior: 'smooth'
             });

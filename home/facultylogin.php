@@ -31,7 +31,7 @@ if (isset($_POST['logIn_button'])) {
         if ($EnteredPassword === $user['PasswordEncrypted']) {
             $_SESSION['empid'] = $empid;
             $_SESSION['validate'] = true;
-            header('location: ../faculty/faculty.php');
+            header('location: ../faculty/attendanceContent.php');
             exit();
         } else {
             echo 'Password verification failed! Passwords do not match.';
