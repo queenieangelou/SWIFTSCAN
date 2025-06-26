@@ -4,9 +4,7 @@
 1. [Objective](#objective)
 2. [Introduction](#introduction)
 3. [Features](#features)
-4. [Installation](#installation)
-5. [Requirements](#requirements)
-6. [Usage](#usage)
+4. [Usage](#usage)
 
 ---
 
