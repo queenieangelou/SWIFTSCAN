@@ -41,33 +41,6 @@ The SwiftScan system offers the following key features:
 
 ---
 
-## Installation <a name="installation"></a>
-To install the SwiftScan system, follow these steps:
-
-1. Clone the SwiftScan repository from (https://github.com/queenieangelou/SWIFTSCAN.git).
-2. Navigate to the project directory.
-3. Run the installation script:
-   ```
-   $ npm install
-   ```
-4. Configure the necessary settings, such as database connections and system preferences.
-5. Launch the application:
-   ```
-   $ npm start
-   ```
-
----
-
-## Requirements <a name="requirements"></a>
-Ensure that your system meets the following requirements for SwiftScan:
-
-- Node.js (version X.X.X or higher)
-- npm (Node Package Manager)
-- Database (e.g., MongoDB, MySQL) for backend storage
-- Internet connectivity for QR code generation and scanning
-
----
-
 ## Usage <a name="usage"></a>
 Follow these guidelines to effectively use the SwiftScan system:
 
